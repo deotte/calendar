@@ -2,22 +2,18 @@ import React, { Component } from 'react';
 import './Calendar.css';
 import DayCard from './day-card.js';
 
-let weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+let weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 export default class Calendar extends Component {
   constructor(props) {
     super(props);
 
-    this.changeCurrentDay = this.changeCurrentDay.bind(this);
-
     this.state = {
       calendarDays: [],
       weekdays: weekdays,
       months: months,
-      currentDay: new Date(),
-      currentYear: new Date().getFullYear(),
-      currentMonth: new Date().getMonth()
+      currentDay: new Date()
     }
   }
   
@@ -25,7 +21,24 @@ export default class Calendar extends Component {
     return (
       <section>
         <div className="calendar">
-          <div className="calendar-header"></div>
+          <div className="calendar-header">
+            <div className="title">
+              <h2>{months[this.state.currentDay.getMonth()]} {this.state.currentDay.getFullYear()}</h2>
+            </div>
+            <div className="tools">
+              <button onClick={this.previousDay}>
+                <span className="material-icons">
+                  arrow_back
+                </span>
+              </button>
+              <p>{months[this.state.currentDay.getMonth()].substring(0,3)} {this.state.currentDay.getDate()}</p>
+              <button onClick={this.nextDay}>
+                <span className="material-icons">
+                  arrow_forward
+                </span>
+              </button>
+            </div>
+          </div>
           <div className="calendar-body">
             <div className="table-header">
               {
@@ -57,13 +70,8 @@ export default class Calendar extends Component {
     this.generateCalendar();
   }
 
-  generateCalendar(year, month) {
-    this.setState({
-      currentMonth: month,
-      currentYear: year
-    });
-
-    let firstDayOfMonth = new Date(this.state.currentYear, this.state.currentMonth, 1);
+  generateCalendar() {
+    let firstDayOfMonth = new Date(this.state.currentDay.getFullYear(), this.state.currentDay.getMonth(), 1);
     let weekdayOfFirstDay = firstDayOfMonth.getDay();
     let currentDays = [];
 
@@ -77,7 +85,7 @@ export default class Calendar extends Component {
       }
 
       let calendarDay = {
-        currentMonth: (firstDayOfMonth.getMonth() === this.state.currentMonth),
+        currentMonth: (firstDayOfMonth.getMonth() === this.state.currentDay.getMonth()),
         date: (new Date(firstDayOfMonth)),
         month: firstDayOfMonth.getMonth(),
         number: firstDayOfMonth.getDate(),
@@ -90,7 +98,15 @@ export default class Calendar extends Component {
     }
   }
 
-  changeCurrentDay(day) {
+  changeCurrentDay = (day) => {
     this.setState({ currentDay: new Date(day.year, day.month, day.number) });
+  }
+
+  nextDay = () => {
+    this.setState({ currentDay: new Date(this.state.currentDay.setDate(this.state.currentDay.getDate() + 1)) });
+  }
+
+  previousDay = () => {
+    this.setState({ currentDay: new Date(this.state.currentDay.setDate(this.state.currentDay.getDate() - 1)) });
   }
 }
