@@ -1,0 +1,78 @@
+.day-card {
+  width: 384px;
+  height: 576px;
+  margin: auto;
+  background-color: rgba(0,0,0,.10);
+  display: flex;
+  flex-direction: column;
+}
+
+.day-card .header {
+  width: 75%;
+  height: 75px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.day-card hr {
+  background-color: #cc0000;
+  width: 100%;
+  height: 3px;
+  border: none;
+}
+
+.count {
+  width: 75%;
+  height: 25px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+
+.event {
+  width: 75%;
+  height: 50px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+/* .event h4, .event p {
+  margin-right: auto;
+} */
+
+.day-card .tools {
+  width: 40%;
+  height: 75px;
+  margin-right: auto;
+  margin-left: 45px;
+  text-align: center;
+}
+
+.day-card .tools button {
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #2E86C1;
+  text-align: center;
+}
+
+.day-card .tools button span {
+  margin: auto;
+  color: #2E86C1;
+}
+
+.day-card .tools button p {
+  margin: auto;
+  color: #2E86C1;
+}
+

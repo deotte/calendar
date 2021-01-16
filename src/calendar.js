@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './Calendar.css';
 import DayCard from './day-card.js';
+import CalendarDays from './calendar-days.js';
 
-let weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 export default class Calendar extends Component {
   constructor(props) {
@@ -47,55 +48,12 @@ export default class Calendar extends Component {
                 })
               }
             </div>
-            <div className="table-content">
-              {
-                this.state.calendarDays.map((day) => {
-                  return (
-                    <div className={"calendarDay" + (day.currentMonth ? " current" : "") + (day.selected ? " selected" : "")}
-                        onClick={() => this.changeCurrentDay(day) }>
-                      <p>{day.number}</p>
-                    </div>
-                  )
-                })
-              }
-            </div>
+            <CalendarDays day={this.state.currentDay} changeCurrentDay={this.changeCurrentDay}/>
           </div>
         </div>
         <DayCard day={this.state.currentDay}/>
       </section>
     )
-  }
-
-  componentDidMount() {
-    this.generateCalendar();
-  }
-
-  generateCalendar() {
-    let firstDayOfMonth = new Date(this.state.currentDay.getFullYear(), this.state.currentDay.getMonth(), 1);
-    let weekdayOfFirstDay = firstDayOfMonth.getDay();
-    let currentDays = [];
-
-    for (let day = 0; day < 42; day++) {
-      if (day === 0 && weekdayOfFirstDay === 0) {
-        firstDayOfMonth.setDate(firstDayOfMonth.getDate() - 7);
-      } else if (day === 0) {
-        firstDayOfMonth.setDate(firstDayOfMonth.getDate() + (day - weekdayOfFirstDay));
-      } else {
-        firstDayOfMonth.setDate(firstDayOfMonth.getDate() + 1);
-      }
-
-      let calendarDay = {
-        currentMonth: (firstDayOfMonth.getMonth() === this.state.currentDay.getMonth()),
-        date: (new Date(firstDayOfMonth)),
-        month: firstDayOfMonth.getMonth(),
-        number: firstDayOfMonth.getDate(),
-        selected: (firstDayOfMonth.toDateString() === this.state.currentDay.toDateString()),
-        year: firstDayOfMonth.getFullYear()
-      }
-
-      currentDays.push(calendarDay);
-      this.setState({calendarDays: currentDays});
-    }
   }
 
   changeCurrentDay = (day) => {
