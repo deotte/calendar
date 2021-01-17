@@ -2,18 +2,23 @@
   width: 384px;
   height: 576px;
   margin: auto;
-  background-color: rgba(0,0,0,.10);
+  background-color: rgba(0,0,0,.05);
   display: flex;
   flex-direction: column;
+  padding: 5px;
 }
 
 .day-card .header {
   width: 75%;
-  height: 75px;
+  height: 20%;
   margin: auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content:space-evenly;
+}
+
+.day-card .header h2 {
+  align-self: flex-start;
 }
 
 .day-card hr {
@@ -23,37 +28,68 @@
   border: none;
 }
 
-.count {
+.events-wrapper {
+  width: 85%;
+  flex-grow: 1;
+  min-height: 20%;
+  max-height: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.event {
+  width: 100%;
+  height: 25px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.event-content {
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.event-tools {
+  width: 10%;
+  height: 100%;
+  margin: auto;
+  align-items: center;
+  display: flex;
+}
+
+.event-tools span {
+  margin: auto;
+  color: #cc0000;
+}
+
+.event h4, .event p {
+  margin-right: auto;
+}
+
+/* .count {
   width: 75%;
   height: 25px;
   margin: auto;
   display: flex;
   align-items: center;
-}
-
-.event {
-  width: 75%;
-  height: 50px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-
-/* .event h4, .event p {
-  margin-right: auto;
 } */
 
-.day-card .tools {
+/* .day-card .tools {
   width: 40%;
-  height: 75px;
+  height: 71px;
   margin-right: auto;
   margin-left: 45px;
   text-align: center;
-}
+} */
 
-.day-card .tools button {
+/* .day-card .tools button {
   width: 100%;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -74,5 +110,5 @@
 .day-card .tools button p {
   margin: auto;
   color: #2E86C1;
-}
+} */
 

@@ -18,29 +18,71 @@ export default class DayCard extends Component {
           </h2>
           <hr></hr>
         </div>
-        <div className="count">
-          <h3>4 Events</h3>
+        <div className="events-wrapper">
+          <div className="event">
+            <div class="event-content">
+              <h4>9 AM - 10 AM</h4>
+              <p>Call with manager</p>
+            </div>
+            <div class="event-tools">
+              <span className="material-icons md-18">
+                remove_circle_outline
+              </span>
+            </div>
+          </div>
+          <div className="event">
+            <div class="event-content">
+              <h4>9 AM - 10 AM</h4>
+              <p>Call with manager</p>
+            </div>
+            <div class="event-tools">
+              <span className="material-icons md-18">
+                remove_circle_outline
+              </span>
+            </div>
+          </div>
+          <div className="event">
+            <div class="event-content">
+              <h4>9 AM - 10 AM</h4>
+              <p>Call with manager</p>
+            </div>
+            <div class="event-tools">
+              <span className="material-icons md-18">
+                remove_circle_outline
+              </span>
+            </div>
+          </div>
+          <div className="event">
+            <div class="event-content">
+              <h4>9 AM - 10 AM</h4>
+              <p>Call with manager</p>
+            </div>
+            <div class="event-tools">
+              <span className="material-icons md-18">
+                remove_circle_outline
+              </span>
+            </div>
+          </div>
+          <div className="event">
+            <div class="event-content">
+              <h4>9 AM - 10 AM</h4>
+              <p>Call with manager</p>
+            </div>
+            <div class="event-tools">
+              <span className="material-icons md-18">
+                remove_circle_outline
+              </span>
+            </div>
+          </div>
         </div>
-        <div className="event">
-          <h4>9 AM - 10 AM</h4>
-          <p>Call with manager</p>
-        </div>
-        <div className="event">
-          <h4>9 AM - 10 AM</h4>
-          <p>Call with manager</p>
-        </div>
-        <div className="event">
-          <h4>9 AM - 10 AM</h4>
-          <p>Call with manager</p>
-        </div>
-        <div className="tools">
+        {/* <div className="tools">
           <button>
             <span className="material-icons">
               add
             </span>
             <p>Add New Event</p>
           </button>
-        </div>
+        </div> */}
       </div>
     )
   }
