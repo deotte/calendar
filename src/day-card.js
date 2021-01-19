@@ -5,9 +5,25 @@ const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 export default class DayCard extends Component {
-  constructor(props) {
-    super(props)
+  constructor(props){
+    super(props);
+
+    this.state = {
+      events: this.props.events
+    }
   }
+
+  componentDidUpdate(previousProps) {
+    if (previousProps !== this.props) {
+      this.setState({events: this.props.events})
+    }
+  }
+
+  removeEvent = (id) => {
+    // let eventsCopy = [...this.state.events];
+    let newEvents = this.state.events.filter(event => event.id !== id);
+    this.setState({events: newEvents});
+  };
 
   render() {
     return (
@@ -19,70 +35,26 @@ export default class DayCard extends Component {
           <hr></hr>
         </div>
         <div className="events-wrapper">
-          <div className="event">
-            <div class="event-content">
-              <h4>9 AM - 10 AM</h4>
-              <p>Call with manager</p>
-            </div>
-            <div class="event-tools">
-              <span className="material-icons md-18">
-                remove_circle_outline
-              </span>
-            </div>
-          </div>
-          <div className="event">
-            <div class="event-content">
-              <h4>9 AM - 10 AM</h4>
-              <p>Call with manager</p>
-            </div>
-            <div class="event-tools">
-              <span className="material-icons md-18">
-                remove_circle_outline
-              </span>
-            </div>
-          </div>
-          <div className="event">
-            <div class="event-content">
-              <h4>9 AM - 10 AM</h4>
-              <p>Call with manager</p>
-            </div>
-            <div class="event-tools">
-              <span className="material-icons md-18">
-                remove_circle_outline
-              </span>
-            </div>
-          </div>
-          <div className="event">
-            <div class="event-content">
-              <h4>9 AM - 10 AM</h4>
-              <p>Call with manager</p>
-            </div>
-            <div class="event-tools">
-              <span className="material-icons md-18">
-                remove_circle_outline
-              </span>
-            </div>
-          </div>
-          <div className="event">
-            <div class="event-content">
-              <h4>9 AM - 10 AM</h4>
-              <p>Call with manager</p>
-            </div>
-            <div class="event-tools">
-              <span className="material-icons md-18">
-                remove_circle_outline
-              </span>
-            </div>
-          </div>
+          {
+            this.state.events.map((event) => {
+              return (
+                <div className="event">
+                  <div className="event-content">
+                    <h4>{event.start} - {event.end}</h4>
+                    <p>{event.title}</p>
+                  </div>
+                  <div className="event-tools">
+                    <button onClick={() => this.removeEvent(event.id) }>
+                      <span className="material-icons md-18">
+                        remove_circle_outline
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              )
+            })
+          }
         </div>
-        {/* <div className="tools">
-          <button>
-            <span className="material-icons">
-              add
-            </span>
-            <p>Add New Event</p>
-          </button>
-        </div> */}
       </div>
     )
   }

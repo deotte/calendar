@@ -18,7 +18,7 @@
 }
 
 .day-card .header h2 {
-  align-self: flex-start;
+  text-align: center;
 }
 
 .day-card hr {
@@ -29,7 +29,7 @@
 }
 
 .events-wrapper {
-  width: 85%;
+  width: 90%;
   flex-grow: 1;
   min-height: 20%;
   max-height: 80%;
@@ -69,8 +69,9 @@
   color: #cc0000;
 }
 
-.event h4, .event p {
-  margin-right: auto;
+.event p {
+  margin-right: 25px;
+  margin-left: auto;
 }
 
 /* .count {

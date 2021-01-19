@@ -7,12 +7,11 @@ section {
 }
 
 .calendar {
-  width: 810px;
+  width: 900px;
   height: 700px;
   margin: auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
 }
 
 .calendar-header {
