@@ -8,10 +8,12 @@ section {
 
 .calendar {
   width: 900px;
-  height: 700px;
+  height: 600px;
   margin: auto;
   display: flex;
+  align-items: center;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .calendar-header {
@@ -55,6 +57,10 @@ section {
   border: none;
 }
 
+.tools button span:hover {
+  color: #99cccc;
+}
+
 .table-header {
   width: 100%;
   display: flex;
@@ -85,6 +91,10 @@ section {
   position: relative;
 }
 
+.calendarDay:hover {
+  background-color: rgba(0,0,0,.10);
+}
+
 .calendarDay p {
   position: absolute;
   top: 10px;
@@ -97,7 +107,7 @@ section {
 }
 
 .selected p {
-  color: #CC0000;
+  color: #cc0000;
   font-weight: bold;
 }
 
