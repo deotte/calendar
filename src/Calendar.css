@@ -1,4 +1,4 @@
-section {
+.calendar-wrapper {
   width: 1440px;
   height: 700px;
   display: flex;

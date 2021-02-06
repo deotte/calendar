@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 
 * {
   margin: 0;
@@ -9,7 +10,7 @@ html, body {
   height: 100%;
 }
 
-h1, h2, h3, h4, h5, h6, p, button, input, select, option {
+h1, h2, h3, h4, h5, h6, p, button, input, select, option, a {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
@@ -21,13 +22,25 @@ p, button, input, select, option {
   font-weight: normal;
 }
 
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+span {
+  background-color: none;
+  border: none;
+}
+
 button {
   font-size: 12px;
 }
 
+a:hover, button span:hover {
+  color: #99cccc;
+}
+
 section {
-  display: flex;
-  flex-direction: column;
   min-height: 100%;
 }
 

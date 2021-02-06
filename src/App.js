@@ -1,10 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import Calendar from './calendar';
+import Navigation from './navigation';
 
 function App() {
   return (
-    <Calendar />
+    <section>
+      <Navigation />
+      <Calendar />
+    </section>
   );
 }
 

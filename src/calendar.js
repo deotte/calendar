@@ -40,7 +40,7 @@ export default class Calendar extends Component {
   
   render() {
     return (
-      <section>
+      <div className="calendar-wrapper">
         <div className="calendar">
           <div className="calendar-header">
             <div className="title">
@@ -72,7 +72,7 @@ export default class Calendar extends Component {
           </div>
         </div>
         <DayCard day={this.state.currentDay} events={this.currentEvents(events)}/>
-      </section>
+      </div>
     )
   }
 }
