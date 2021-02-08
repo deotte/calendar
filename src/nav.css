@@ -11,7 +11,7 @@ nav {
   width: 200px;
   height: 100%;
   display: flex;
-  background-color: #99cccc;
+  background-color: #65b2b2;
   justify-content: space-around;
   align-items: center;
 }
@@ -36,7 +36,7 @@ nav {
 
 .nav-menu #selected {
   text-decoration: underline;
-  text-underline-offset: .5rem;
+  text-underline-offset: .75rem;
 }
 
 .nav-profile {
